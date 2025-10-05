@@ -240,7 +240,7 @@ $(function () {
                 // 创建或更新中文名称显示
                 let nameDisplay = $("#position-name");
                 if (nameDisplay.length === 0) {
-                    nameDisplay = $('<div id="position-name" style="position: absolute; top: -40px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); color: white; padding: 8px 16px; border-radius: 20px; font-size: 16px; font-weight: bold; z-index: 10; white-space: nowrap;"></div>');
+                    nameDisplay = $('<div id="position-name" style="position: absolute; top: -30px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.3); color: white; padding: 4px 8px; border-radius: 10px; font-size: 14px; font-weight: bold; z-index: 10; white-space: nowrap;"></div>');
                     $("#position").parent().css("position", "relative").append(nameDisplay);
                 }
                 nameDisplay.text(chineseName);

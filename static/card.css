@@ -8,8 +8,8 @@ body {
 
 label .cardWrapper {
 	position: relative;
-	height: 70vmin;
-	width: calc(70vmin / 1.4);
+	height: 120vmin;
+	width: calc(120vmin / 1.4);
 	background-color: royalblue;
 	background-image: repeating-linear-gradient(120deg,
 			rgba(255, 0, 0, 0.5),
@@ -34,8 +34,8 @@ label .cardWrapper {
 			rgba(0, 0, 0, 0.1) 75%,
 			rgba(0, 0, 0, 0.1));
 	background-size: 70px 120px;
-	margin: calc(70vmin / 10);
-	border-radius: calc(40vmin / 20);
+	margin: calc(120vmin / 10);
+	border-radius: calc(75vmin / 20);
 	// box-shadow: 0 calc(40vmin / 40) calc(40vmin / 10) 0 rgba(0, 0, 0, 0.2);
 
 	overflow: hidden;

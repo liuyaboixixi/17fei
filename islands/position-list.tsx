@@ -133,7 +133,7 @@ export default function PositionList(params) {
                                     src={imageSrc} 
                                     class="rounded mx-auto block w-full h-48 object-cover bg-gray-200" 
                                 />
-                                <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white px-3 py-1 rounded-full text-sm font-bold whitespace-nowrap">
+                                <div class="absolute bottom-2 right-2 bg-black bg-opacity-30 text-white px-2 py-1 rounded text-xs font-bold whitespace-nowrap">
                                     {chineseName}
                                 </div>
                             </div>
