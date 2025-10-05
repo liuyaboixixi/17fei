@@ -1,3 +1,112 @@
+// 文件名到中文名称的直接映射
+function getChineseNameByFilename(filename) {
+    const nameMap = {
+        "G-Spot-Sniper-Sex-Position-Illustration.jpg": "G点狙击",
+        "Doggy-Style-Sex-Position-Illustration.jpg": "后入式",
+        "69-Sex-Position-Illustration.jpg": "69式",
+        "Mastery-Sex-Position-Illustration.jpg": "掌控式",
+        "Asian-Cowgirl-Sex-Position-Illustration.jpg": "亚洲女牛仔",
+        "Acrobat-Sex-Position-Illustration.jpg": "杂技式",
+        "Amazon-Sex-Position-Illustration.jpg": "亚马逊式",
+        "Anvil-Sex-Position-Illustration.jpg": "铁砧式",
+        "Back-Seat-Driver-Sex-Position-Illustration.jpg": "后座司机",
+        "Ballerina-Sex-Position.jpg": "芭蕾舞者",
+        "Basset-Hound-Sex-Position-Illustration.jpg": "巴塞特猎犬",
+        "Ben-Dover-Sex-Position-Illustration.jpg": "本·多佛",
+        "Bended-Knee-Sex-Position-Illustration.jpg": "屈膝式",
+        "Bent-Spoon-Sex-Position-Illustration.jpg": "弯勺式",
+        "Betty-Rocker-Sex-Position-Illustration.jpg": "贝蒂摇滚",
+        "Big-Dipper-Sex-Position-Illustration.jpg": "大北斗",
+        "Bodyguard-Sex-Position-Illustration.jpg": "保镖式",
+        "Book-Ends-Sex-Position.jpg": "书挡式",
+        "Bouncing-Spoon-Sex-Position-Illustration.jpg": "弹跳勺",
+        "Bridge-Sex-Position-Illustration.jpg": "桥式",
+        "Brute-Sex-Position-Illustration.jpg": "蛮力式",
+        "Bulldog-Sex-Position-Illustration.jpg": "斗牛犬",
+        "Bumper-Cars-Sex-Position-Illustration.jpg": "碰碰车",
+        "Burning-Man-Sex-Position-Illustration.jpg": "燃烧的人",
+        "Butterfly-Sex-Position-Illustration.jpg": "蝴蝶式",
+        "Chair-Riding-Sex-Position-Illustration.jpg": "骑椅式",
+        "Coital-Alignment-Technique-Sex-Position-Illustration.jpg": "性交对齐技术",
+        "Corner-Cowgirl-Sex-Position-Illustration.jpg": "角落女牛仔",
+        "Corner-Doggy-Style-Sex-Position-Illustration.jpg": "角落后入式",
+        "Cowboy-Sex-Position-Illustration.jpg": "牛仔式",
+        "Cowgirl-Sex-Position-Illustration.jpg": "女牛仔",
+        "Crab-Sex-Position-Illustration.jpg": "螃蟹式",
+        "Criss-Cross-Sex-Position-Illustration.jpg": "十字交叉",
+        "Cross-Sex-Position-Illustration.jpg": "十字式",
+        "Dancer-Sex-Position-Illustration.jpg": "舞者式",
+        "Deckchair-Sex-Position-Illustration.jpg": "躺椅式",
+        "Deep-Impact-Sex-Position-Illustration-1.jpg": "深度冲击",
+        "Delight-Sex-Position-Illustration.jpg": "愉悦式",
+        "Down-Stroke-Sex-Position-Illustration.jpg": "下击式",
+        "Drill-Sex-Position-Illustration.jpg": "钻头式",
+        "Dublin-Shuffle-Sex-Position-Illustration.jpg": "都柏林洗牌",
+        "Exposed-Eagle-Sex-Position-Illustration.jpg": "暴露的鹰",
+        "Face-Off-69-Position-Illustration.jpg": "面对面69",
+        "Fast-Fuck-Sex-Position-Illustration.jpg": "快速性爱",
+        "Final-Furlong-Sex-Position-Illustration.jpg": "最后冲刺",
+        "Fire-Hydrant-Sex-Position-Illustration.jpg": "消防栓",
+        "Frog-Leap-Sex-Position-Illustration.jpg": "青蛙跳跃",
+        "Golden-Gate-69-Position-Illustration.jpg": "金门69",
+        "Hang-Loose-Sex-Position-Illustration.jpg": "放松悬挂",
+        "High-Chair-Sex-Position-Illustration.jpg": "高椅式",
+        "Intersection-Sex-Position-Illustration.jpg": "交叉路口",
+        "Irish-Garden-Sex-Position-Illustration.jpg": "爱尔兰花园",
+        "Italian-Hanger-Sex-Position-Illustration.jpg": "意大利衣架",
+        "Jellyfish-Sex-Position-Illustration.jpg": "水母式",
+        "Jockey-Sex-Position-Illustration.jpg": "骑师式",
+        "Jughead-Sex-Position-Illustration.jpg": "傻瓜头",
+        "Jugghead-Sex-Position-Illustration.jpg": "傻瓜头",
+        "Launch-Pad-Sex-Position-Illustration.jpg": "发射台",
+        "Lazy-Wheelbarrow-Sex-Position-Illustration.jpg": "懒人手推车",
+        "Leap-Frog-Sex-Position-Illustration.jpg": "跳蛙式",
+        "Leg-Glider-Sex-Position-Illustration.jpg": "腿部滑翔",
+        "Legs-On-Shoulder-Sex-Position-Illustration.jpg": "腿在肩上",
+        "Legs-Spread-Sex-Position-Illustration.jpg": "双腿张开",
+        "Life-Raft-Sex-Position-Illustration.jpg": "救生筏",
+        "Little-Dipper-Sex-Position-Illustration.jpg": "小北斗",
+        "Lotus-Sex-Position-Illustration.jpg": "莲花式",
+        "Lunge-Sex-Position-Illustration.jpg": "弓步式",
+        "Mongolian-Smurf-Sex-Position-Illustration.jpg": "蒙古蓝精灵",
+        "Mongolian-Smurfy-Sex-Position-Illustration.jpg": "蒙古蓝精灵",
+        "Octopus-Sex-Position-Illustration.jpg": "章鱼式",
+        "Piledriver-Sex-Position-Illustration.jpg": "打桩机",
+        "Piston-Sex-Position-Illustration.jpg": "活塞式",
+        "Poles-Apart-Sex-Position-Illustration.jpg": "两极分离",
+        "Pump-Sex-Position-Illustration.jpg": "泵式",
+        "Rear-Admiral-Sex-Position-Illustration.jpg": "后海军上将",
+        "Rear-Entry-Sex-Position-Illustration.jpg": "后入式",
+        "Right-Angle-Sex-Position-Illustration.jpg": "直角式",
+        "Sandwich-Sex-Position-Illustration.jpg": "三明治式",
+        "Scissors-Sex-Position-Illustration.jpg": "剪刀式",
+        "See-Saw-Sex-Position-Illustration.jpg": "跷跷板",
+        "Shoe-Shiner-Sex-Position-Illustration.jpg": "擦鞋匠",
+        "Side-Entry-Missionary-Sex-Position-Illustration.jpg": "侧入传教士",
+        "Side-Ride-Sex-Position-Illustration.jpg": "侧骑式",
+        "Side-Saddle-Sex-Position-Illustration.jpg": "侧鞍式",
+        "Sitting-Sex-Position.jpg": "坐式",
+        "Sliding-Lady-Sex-Position-Illustration.jpg": "滑动女士",
+        "Spooning-Sex-Position-Illustration.jpg": "勺子式",
+        "Sporking-Sex-Position-Illustration.jpg": "叉勺式",
+        "Stairway-To-Heaven-Sex-Position-Illustration.jpg": "天堂阶梯",
+        "Stand-And-Carry-Sex-Position-Illustration.jpg": "站立携带",
+        "Superwoman-Sex-Position-Illustration.jpg": "女超人",
+        "Suspended-69-Position-Illustration.jpg": "悬空69",
+        "Swiss-Miss-Sex-Position-Picture.jpg": "瑞士小姐",
+        "Sybian-Sex-Position-Illustration.jpg": "赛比安",
+        "Tea-Spooning-Sex-Position-Illustration.jpg": "茶勺式",
+        "Thigh-Tide-Sex-Position-Illustration.jpg": "大腿潮汐",
+        "Tug-Of-Love-Sex-Position-Illustration.jpg": "爱的拔河",
+        "Turtle-Sex-Position-Illustration.jpg": "乌龟式",
+        "Twister-Sex-Position-Illustration.jpg": "扭转式",
+        "Viennese-Oyster-Sex-Position-Illustration.jpg": "维也纳牡蛎",
+        "Washing-Machine-Sex-Position-Illustration.jpg": "洗衣机",
+        "X-Marks-The-Post-Sex-Position-Illustration.jpg": "X标记柱子"
+    };
+    return nameMap[filename] || filename.replace('-Sex-Position-Illustration.jpg', '').replace('-Sex-Position.jpg', '');
+}
+
 let positions = [
     "L3Bvc2l0aW9ucy9HLVNwb3QtU25pcGVyLVNleC1Qb3NpdGlvbi1JbGx1c3RyYXRpb24uanBn",
     "L3Bvc2l0aW9ucy9Eb2dneS1TdHlsZS1TZXgtUG9zaXRpb24tSWxsdXN0cmF0aW9uLmpwZw==",
@@ -123,6 +232,18 @@ $(function () {
             let src = atob(positions[Math.floor(length * Math.random())]);
             setTimeout(function () {
                 $("#position").attr("src", src);
+                
+                // 显示中文名称 - 直接根据文件名映射
+                const filename = src.split('/').pop();
+                const chineseName = getChineseNameByFilename(filename);
+                
+                // 创建或更新中文名称显示
+                let nameDisplay = $("#position-name");
+                if (nameDisplay.length === 0) {
+                    nameDisplay = $('<div id="position-name" style="position: absolute; top: -40px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); color: white; padding: 8px 16px; border-radius: 20px; font-size: 16px; font-weight: bold; z-index: 10; white-space: nowrap;"></div>');
+                    $("#position").parent().css("position", "relative").append(nameDisplay);
+                }
+                nameDisplay.text(chineseName);
             }, 200);
         }
     });
