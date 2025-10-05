@@ -14,8 +14,14 @@ export default function PositionList(params) {
             <div class="grid grid-cols-2 gap-2">
                 {positions.map((p, i) => {
                     if (i < length) {
+                        const imageSrc = atob(p);
                         return (
-                            <img src={atob(p)} class="rounded mx-auto block" />
+                            <div key={i} class="relative">
+                                <img 
+                                    src={imageSrc} 
+                                    class="rounded mx-auto block w-full h-48 object-cover bg-gray-200" 
+                                />
+                            </div>
                         );
                     }
                 })}
