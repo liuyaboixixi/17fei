@@ -1,5 +1,5 @@
 window.changeVersion = (card_version) => {
-  let vip = localStorage.getItem('vip')
+  let vip = localStorage.getItem('vip') || true; // 默认解锁VIP
 
   if (card_version.indexOf('lover') == 0) {
     localStorage.setItem('card_version', card_version)

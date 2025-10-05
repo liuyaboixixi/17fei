@@ -4,7 +4,7 @@ export default function PositionList(params) {
     let { positions } = params;
     let [length, setLength] = useState(10);
     useEffect(function () {
-        let vip = localStorage.getItem("vip");
+        let vip = localStorage.getItem("vip") || true; // 默认解锁VIP
         if (vip) {
             setLength(positions.length);
         }
@@ -20,7 +20,7 @@ export default function PositionList(params) {
                     }
                 })}
             </div>
-            {length < 40 && (
+            {false && (
                 <div class="text-center p-4 underline">
                     <a href="/about">开通会员解锁全部(上百个)姿势</a>
                 </div>

@@ -102,7 +102,7 @@ let positions = [
 ];
 
 $(function () {
-    let vip = localStorage.getItem("vip");
+    let vip = localStorage.getItem("vip") || true; // 默认解锁VIP
     let length = 10;
     if (vip) {
         length = 100;

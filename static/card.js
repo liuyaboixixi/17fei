@@ -10,8 +10,8 @@ $(function() {
 		'sex2': '私密版',
 		'sm': 'sm版',
 		'huwai': '户外版',
-		'nvpu': '女仆版',
-		'nanpu': '男仆版',
+		'nvpu': '女奴版',
+		'nanpu': '男奴版',
 		'custom': '自定义',
 	}
 
