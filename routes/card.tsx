@@ -27,11 +27,9 @@ export default function Card() {
             <input type="checkbox" id="card" checked />
             <label for="card">
               <div class="cardWrapper ">
-                <div class="cardRandom h-full flex flex-col items-center">
-                  <div class="flex-1"></div>
-                  <div id="content" style="writing-mode: vertical-rl" class="p-4 flex-auto font-black text-3xl text-pink-600">
+                <div class="cardRandom h-full flex flex-col items-center justify-center">
+                  <div id="content" class="p-6 font-black text-center">
                   </div>
-                  <div class="flex-1"></div>
                 </div>
               </div>
             </label>

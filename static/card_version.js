@@ -12,7 +12,6 @@ window.changeVersion = (card_version) => {
     return
   }
 
-
   localStorage.setItem('card_version', card_version)
   location.href = "/card"
 }

@@ -13,12 +13,16 @@ import * as $7 from "./routes/card_version.tsx";
 import * as $8 from "./routes/custom.tsx";
 import * as $9 from "./routes/greet/[name].tsx";
 import * as $10 from "./routes/index.tsx";
-import * as $11 from "./routes/member.tsx";
-import * as $12 from "./routes/position.tsx";
-import * as $13 from "./routes/positions.tsx";
-import * as $14 from "./routes/unopen.tsx";
-import * as $$0 from "./islands/position-list.tsx";
-import * as $$1 from "./islands/vip.tsx";
+import * as $11 from "./routes/lottery.tsx";
+import * as $12 from "./routes/member.tsx";
+import * as $13 from "./routes/position.tsx";
+import * as $14 from "./routes/positions.tsx";
+import * as $15 from "./routes/task-assemble.tsx";
+import * as $16 from "./routes/unopen.tsx";
+import * as $$0 from "./islands/lottery.tsx";
+import * as $$1 from "./islands/position-list.tsx";
+import * as $$2 from "./islands/task-assemble.tsx";
+import * as $$3 from "./islands/vip.tsx";
 
 const manifest = {
   routes: {
@@ -33,14 +37,18 @@ const manifest = {
     "./routes/custom.tsx": $8,
     "./routes/greet/[name].tsx": $9,
     "./routes/index.tsx": $10,
-    "./routes/member.tsx": $11,
-    "./routes/position.tsx": $12,
-    "./routes/positions.tsx": $13,
-    "./routes/unopen.tsx": $14,
+    "./routes/lottery.tsx": $11,
+    "./routes/member.tsx": $12,
+    "./routes/position.tsx": $13,
+    "./routes/positions.tsx": $14,
+    "./routes/task-assemble.tsx": $15,
+    "./routes/unopen.tsx": $16,
   },
   islands: {
-    "./islands/position-list.tsx": $$0,
-    "./islands/vip.tsx": $$1,
+    "./islands/lottery.tsx": $$0,
+    "./islands/position-list.tsx": $$1,
+    "./islands/task-assemble.tsx": $$2,
+    "./islands/vip.tsx": $$3,
   },
   baseUrl: import.meta.url,
 };
