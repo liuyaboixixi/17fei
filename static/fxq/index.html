@@ -1,5 +1,329 @@
-﻿<!DOCTYPE html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>源码库ymkuz.com</title><script>var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') || CSS.supports('top: constant(a)'))
-            document.write('<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' + (coverSupport ? ', viewport-fit=cover' : '') + '" />')</script><link rel=stylesheet href=./static/index.63b34199.css></head><body><noscript><strong>Please enable JavaScript to continue.</strong></noscript><div id=app></div><script>
+﻿<!DOCTYPE html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>情侣情趣飞行棋</title><script>var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') || CSS.supports('top: constant(a)'))
+            document.write('<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' + (coverSupport ? ', viewport-fit=cover' : '') + '" />')</script><link rel=stylesheet href=./static/index.63b34199.css>
+<style>
+/* 添加返回首页按钮样式 */
+.back-to-home {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: rgba(255, 107, 157, 0.9);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.back-to-home:hover {
+  background: rgba(255, 107, 157, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+/* 修改背景为情趣风格 */
+body {
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 25%, #ffa8c5 50%, #ffc1df 75%, #ffdae8 100%) !important;
+  min-height: 100vh;
+}
+
+/* 添加惩罚任务弹窗样式 */
+.punishment-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(5px);
+}
+
+.punishment-modal.show {
+  display: flex;
+}
+
+.punishment-content {
+  background: white;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.punishment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 2px solid #f0f0f0;
+  background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+  color: white;
+  border-radius: 20px 20px 0 0;
+}
+
+.punishment-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.punishment-body {
+  padding: 25px;
+}
+
+.game-result {
+  text-align: center;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 15px;
+  border: 2px solid #dee2e6;
+}
+
+.winner-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #28a745;
+  margin: 0 0 10px 0;
+}
+
+.loser-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #dc3545;
+  margin: 0;
+}
+
+.punishment-section {
+  margin-top: 20px;
+}
+
+.punishment-subtitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ff6b9d;
+  margin: 0 0 15px 0;
+  text-align: center;
+}
+
+.punishment-description {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.punishment-generate-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.punishment-generate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+}
+
+.punishment-task {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 15px;
+  padding: 20px;
+  border: 2px solid #dee2e6;
+  margin-top: 15px;
+  display: none;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.task-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.task-type {
+  background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.task-description {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.task-tools {
+  background: rgba(255, 107, 157, 0.1);
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  color: #ff6b9d;
+  font-weight: 600;
+}
+
+.task-content {
+  margin-top: 15px;
+}
+
+.task-steps {
+  margin: 10px 0 0 0;
+  padding-left: 20px;
+}
+
+.task-step {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.punishment-footer {
+  padding: 20px 25px;
+  border-top: 2px solid #f0f0f0;
+  text-align: center;
+  background: #f8f9fa;
+  border-radius: 0 0 20px 20px;
+}
+
+.modal-btn {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.confirm-btn {
+  background: linear-gradient(135deg, #28a745, #34ce57);
+  color: white;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.confirm-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+</style>
+</head><body><noscript><strong>Please enable JavaScript to continue.</strong></noscript>
+<!-- 添加返回首页按钮 -->
+<a href="/" class="back-to-home">← 返回首页</a>
+
+
+<div id=app></div>
+
+<!-- 惩罚任务弹窗 -->
+<div id="punishmentModal" class="punishment-modal">
+  <div class="punishment-content">
+    <div class="punishment-header">
+      <h3 class="punishment-title">游戏结果</h3>
+      <button class="close-btn" onclick="closePunishmentModal()">×</button>
+    </div>
+    <div class="punishment-body">
+      <div class="game-result">
+        <p class="winner-text">🏆 获胜者: <span id="winnerName">玩家1</span></p>
+        <p class="loser-text">😈 输家: <span id="loserName">玩家2</span></p>
+      </div>
+      <div class="punishment-section">
+        <h4 class="punishment-subtitle">惩罚任务</h4>
+        <p class="punishment-description">
+          <span id="loserName2">玩家2</span> 需要完成以下抽奖惩罚任务：
+        </p>
+        <button class="punishment-generate-btn" onclick="generatePunishment()">
+          生成惩罚任务
+        </button>
+        <div id="punishmentTask" class="punishment-task">
+          <div class="task-header">
+            <h5 class="task-title" id="taskTitle">任务标题</h5>
+            <span class="task-type" id="taskType">女奴</span>
+          </div>
+          <p class="task-description" id="taskDescription">任务描述</p>
+          <div class="task-tools" id="taskTools" style="display: none;">
+            <strong>所需道具：</strong>
+            <span id="taskToolsList"></span>
+          </div>
+          <div class="task-content">
+            <strong>任务内容：</strong>
+            <ol class="task-steps" id="taskSteps">
+              <!-- 任务步骤将在这里动态生成 -->
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="punishment-footer">
+      <button class="modal-btn confirm-btn" onclick="closePunishmentModal()">
+        确认
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
 // 解锁所有VIP功能
 localStorage.setItem('vip', 'true');
 localStorage.setItem('lockVip', JSON.stringify({"type":"boolean","data":true}));
@@ -14,4 +338,450 @@ localStorage.setItem('unlockAdvanced', 'true');
 localStorage.setItem('unlockPrivate', 'true');
 localStorage.setItem('unlockCombo', 'true');
 localStorage.setItem('unlockCustom', 'true');
-</script><script src=./static/js/chunk-vendors.e4450f0a.js></script><script src=./static/js/index.d2dcdf5b.js></script></body></html>
+
+// 惩罚任务数据
+const punishmentTasks = [
+  {
+    id: "task_001",
+    type: "女奴",
+    tools: ["圆珠笔", "夹子"],
+    title: "办公室羞耻调教",
+    description: "在办公室环境下进行羞耻调教，突破心理防线",
+    content: [
+      "正坐姿势，双腿并拢，两腿夹紧，缓慢用力缩阴至极限再放松，持续1分钟",
+      "圆珠笔圆端隔内裤丝袜，轻压阴蒂，缓慢旋转30秒，后圆珠笔下移用力戳至丝袜破烂",
+      "上述圆珠笔快速隔着内裤轻插动1分钟，最后一下八分力抵住圆珠笔",
+      "上述姿势，夹紧大腿，夹住圆珠笔。另取一只圆珠笔，取出笔芯笔口对着手背，八分力旋转10秒，双手各旋出3个印记，同时缩阴，笔不许掉，掉落重新执行",
+      "取出上述两支笔。去厕所。丝袜从裆部撕开一个口子，取3个夹子，隔内裤夹住阴唇。后回办公室站立双腿尽可能夹紧，选定起始墙面走3个来回",
+      "去厕所，快速扯掉3个夹子。内裤缩成条状，调教时间总共8分钟"
+    ]
+  },
+  {
+    id: "task_002",
+    type: "女奴",
+    tools: [],
+    title: "无道具羞耻调教",
+    description: "不使用任何道具，仅通过身体和语言进行调教",
+    content: [
+      "跪在主人面前，双手背在身后，挺胸抬头，保持标准跪姿3分钟",
+      "大声说出'我是主人的小骚货，请主人调教我'，重复5遍",
+      "保持跪姿，用最骚的语气说'爸爸，求您操死我'，重复8遍",
+      "跪地爬行，每爬一步说一句'我是小贱人'，爬行2分钟",
+      "跪在主人面前，用最卑微的语气说'主人，我是您的奴隶，请随意使用我'，重复3遍",
+      "保持跪姿，双手放在膝盖上，低头认错，说'主人，我知道错了，请惩罚我'，重复5遍"
+    ]
+  },
+  {
+    id: "task_003",
+    type: "男奴",
+    tools: [],
+    title: "跪地认错调教",
+    description: "通过跪地认错，让男奴认识到自己的错误",
+    content: [
+      "在女王面前双膝跪地，双手放在膝盖上，低头认错",
+      "跪地时间：3分钟，期间要保持安静，不能说话",
+      "每30秒要大声说出'女王，我知道错了，请原谅我'，重复2遍",
+      "跪地过程中要保持标准姿势，不能移动，不能抬头",
+      "如果违反规定（移动、说话、抬头），立即重新开始计时",
+      "时间到后，保持跪姿等待女王允许起身，不能自己起身"
+    ]
+  },
+  {
+    id: "task_004",
+    type: "恋爱",
+    tools: [],
+    title: "甜蜜互动任务",
+    description: "增进情侣感情的甜蜜互动",
+    content: [
+      "给对方一个深情的拥抱，持续30秒",
+      "看着对方的眼睛，说出'我爱你'，重复3遍",
+      "给对方一个甜蜜的吻，持续10秒",
+      "手牵手散步5分钟，期间要一直保持牵手",
+      "给对方按摩肩膀5分钟，要温柔体贴",
+      "一起看一部浪漫电影，期间要依偎在一起"
+    ]
+  },
+  {
+    id: "task_005",
+    type: "女奴",
+    tools: ["绳子"],
+    title: "束缚调教任务",
+    description: "通过束缚来增强服从性",
+    content: [
+      "用绳子将双手绑在身后，保持束缚状态5分钟",
+      "跪在主人面前，保持标准跪姿，不能移动",
+      "大声说出'主人，我被束缚了，请随意调教我'，重复3遍",
+      "保持束缚状态，用最卑微的语气说'主人，我是您的玩物'，重复5遍",
+      "束缚期间要保持安静，不能说话，只能听从主人指令",
+      "时间到后，等待主人解开束缚，不能自己挣脱"
+    ]
+  },
+  {
+    id: "task_006",
+    type: "男奴",
+    tools: [],
+    title: "家务惩罚任务",
+    description: "通过做家务来惩罚男奴",
+    content: [
+      "跪地擦地板，用抹布擦干净整个房间的地板",
+      "擦地板时要保持跪姿，不能站起来",
+      "每擦完一个区域，要大声说'女王，我错了，请原谅我'",
+      "擦完地板后，跪在女王面前等待下一步指令",
+      "整个过程要保持卑微的态度，不能抱怨",
+      "完成后，跪地等待女王检查，不合格要重新做"
+    ]
+  },
+  {
+    id: "task_007",
+    type: "恋爱",
+    tools: [],
+    title: "浪漫约会任务",
+    description: "为对方准备一个浪漫的约会",
+    content: [
+      "为对方准备一顿浪漫的晚餐，要亲手制作",
+      "准备一束鲜花，要选择对方喜欢的花",
+      "写一封情书，表达对对方的爱意",
+      "为对方按摩，要温柔体贴，持续15分钟",
+      "一起看日落，手牵手，说甜言蜜语",
+      "给对方一个惊喜，可以是小礼物或者特别的安排"
+    ]
+  },
+  {
+    id: "task_008",
+    type: "女奴",
+    tools: [],
+    title: "语言羞辱调教",
+    description: "通过语言羞辱来增强羞耻感",
+    content: [
+      "跪在主人面前，大声说出'我是主人的小骚货'，重复10遍",
+      "用最骚的语气说'爸爸，求您操死我'，重复8遍",
+      "说出'我是小贱人，只配被主人使用'，重复5遍",
+      "保持跪姿，用最卑微的语气说'主人，我是您的奴隶'，重复3遍",
+      "说出'主人，我知道错了，请惩罚我'，重复5遍",
+      "最后说'主人，我是您的小骚货，请随意使用我'，重复3遍"
+    ]
+  },
+  {
+    id: "task_009",
+    type: "恋爱",
+    tools: [],
+    title: "浪漫晚餐任务",
+    description: "为对方准备一顿浪漫的晚餐",
+    content: [
+      "为对方准备一顿浪漫的晚餐，要亲手制作",
+      "准备一束鲜花，要选择对方喜欢的花",
+      "写一封情书，表达对对方的爱意",
+      "为对方按摩，要温柔体贴，持续15分钟",
+      "一起看日落，手牵手，说甜言蜜语",
+      "给对方一个惊喜，可以是小礼物或者特别的安排"
+    ]
+  },
+  {
+    id: "task_010",
+    type: "恋爱",
+    tools: [],
+    title: "甜蜜约会任务",
+    description: "安排一个甜蜜的约会",
+    content: [
+      "为对方安排一个特别的约会，要提前计划",
+      "选择一个浪漫的地点，可以是公园、海边或咖啡厅",
+      "为对方准备小礼物，要用心挑选",
+      "约会期间要全程关注对方，不能看手机",
+      "为对方拍照，记录美好时光",
+      "约会结束时给对方一个深情的拥抱和吻"
+    ]
+  },
+  {
+    id: "task_011",
+    type: "恋爱",
+    tools: [],
+    title: "温馨陪伴任务",
+    description: "陪伴对方度过美好时光",
+    content: [
+      "陪对方看一部喜欢的电影，要全程陪伴",
+      "为对方准备热饮，要温度适中",
+      "看电影时要依偎在一起，不能分开",
+      "为对方按摩肩膀，要温柔体贴",
+      "电影结束后要讨论剧情，分享感受",
+      "最后给对方一个甜蜜的晚安吻"
+    ]
+  },
+  {
+    id: "task_012",
+    type: "男奴",
+    tools: [],
+    title: "服务女王任务",
+    description: "全心全意服务女王",
+    content: [
+      "跪在女王面前，等待女王指令",
+      "为女王按摩脚部，要温柔有力",
+      "为女王准备茶水，要温度适中",
+      "为女王整理房间，要干净整洁",
+      "为女王准备晚餐，要营养美味",
+      "全程保持卑微态度，不能抱怨"
+    ]
+  },
+  {
+    id: "task_013",
+    type: "女奴",
+    tools: [],
+    title: "服从训练任务",
+    description: "通过训练增强服从性",
+    content: [
+      "跪在主人面前，双手背在身后",
+      "保持标准跪姿，不能移动",
+      "听从主人的每一个指令，不能违抗",
+      "用最卑微的语气回答主人的问题",
+      "保持安静，只能听从主人指令",
+      "训练结束后要感谢主人的调教"
+    ]
+  }
+];
+
+// 显示惩罚任务弹窗
+function showPunishmentModal(winner, loser) {
+  document.getElementById('winnerName').textContent = winner;
+  document.getElementById('loserName').textContent = loser;
+  document.getElementById('loserName2').textContent = loser;
+  document.getElementById('punishmentModal').classList.add('show');
+}
+
+// 关闭惩罚任务弹窗
+function closePunishmentModal() {
+  document.getElementById('punishmentModal').classList.remove('show');
+  document.getElementById('punishmentTask').style.display = 'none';
+}
+
+// 生成惩罚任务
+function generatePunishment() {
+  const randomIndex = Math.floor(Math.random() * punishmentTasks.length);
+  const task = punishmentTasks[randomIndex];
+  
+  document.getElementById('taskTitle').textContent = task.title;
+  document.getElementById('taskType').textContent = task.type;
+  document.getElementById('taskDescription').textContent = task.description;
+  
+  // 显示道具信息
+  const taskTools = document.getElementById('taskTools');
+  const taskToolsList = document.getElementById('taskToolsList');
+  if (task.tools.length > 0) {
+    taskToolsList.textContent = task.tools.join('、');
+    taskTools.style.display = 'block';
+  } else {
+    taskTools.style.display = 'none';
+  }
+  
+  // 生成任务步骤
+  const taskSteps = document.getElementById('taskSteps');
+  taskSteps.innerHTML = '';
+  task.content.forEach(step => {
+    const li = document.createElement('li');
+    li.className = 'task-step';
+    li.textContent = step;
+    taskSteps.appendChild(li);
+  });
+  
+  document.getElementById('punishmentTask').style.display = 'block';
+}
+
+// 显示特定任务的惩罚弹窗
+function showPunishmentModalWithTask(winner, loser, task) {
+  document.getElementById('winnerName').textContent = winner;
+  document.getElementById('loserName').textContent = loser;
+  document.getElementById('loserName2').textContent = loser;
+  
+  // 直接显示指定的任务
+  document.getElementById('taskTitle').textContent = task.title;
+  document.getElementById('taskType').textContent = task.type;
+  document.getElementById('taskDescription').textContent = task.description;
+  
+  // 显示道具信息
+  const taskTools = document.getElementById('taskTools');
+  const taskToolsList = document.getElementById('taskToolsList');
+  if (task.tools.length > 0) {
+    taskToolsList.textContent = task.tools.join('、');
+    taskTools.style.display = 'block';
+  } else {
+    taskTools.style.display = 'none';
+  }
+  
+  // 生成任务步骤
+  const taskSteps = document.getElementById('taskSteps');
+  taskSteps.innerHTML = '';
+  task.content.forEach(step => {
+    const li = document.createElement('li');
+    li.className = 'task-step';
+    li.textContent = step;
+    taskSteps.appendChild(li);
+  });
+  
+  document.getElementById('punishmentTask').style.display = 'block';
+  document.getElementById('punishmentModal').classList.add('show');
+}
+
+// 监听Vue应用的游戏结束事件
+// 由于这是外部Vue应用，我们需要通过其他方式来监听游戏结束
+// 可以通过定时器或者监听特定的事件来模拟游戏结束
+
+// 根据游戏模式获取抽奖任务
+function getPunishmentTasksByMode() {
+  // 检测当前游戏模式
+  const gameMode = detectGameMode();
+  
+  let tasks = [];
+  
+  switch(gameMode) {
+    case '恋爱':
+      // 恋爱模式：只添加恋爱的抽奖任务
+      tasks = punishmentTasks.filter(task => task.type === '恋爱');
+      break;
+    case '情侣':
+      // 情侣模式：添加3个恋爱 + 1个男奴或女奴的任务
+      const loveTasks = punishmentTasks.filter(task => task.type === '恋爱');
+      const slaveTasks = punishmentTasks.filter(task => task.type === '男奴' || task.type === '女奴');
+      tasks = [
+        ...loveTasks.slice(0, 3),
+        ...slaveTasks.slice(0, 1)
+      ];
+      break;
+    case '高级':
+      // 高级模式：添加2个恋爱 + 2个男奴或女奴的任务
+      const loveTasks2 = punishmentTasks.filter(task => task.type === '恋爱');
+      const slaveTasks2 = punishmentTasks.filter(task => task.type === '男奴' || task.type === '女奴');
+      tasks = [
+        ...loveTasks2.slice(0, 2),
+        ...slaveTasks2.slice(0, 2)
+      ];
+      break;
+    case '私密':
+      // 私密模式：添加1个恋爱 + 3个男奴或女奴的任务
+      const loveTasks3 = punishmentTasks.filter(task => task.type === '恋爱');
+      const slaveTasks3 = punishmentTasks.filter(task => task.type === '男奴' || task.type === '女奴');
+      tasks = [
+        ...loveTasks3.slice(0, 1),
+        ...slaveTasks3.slice(0, 3)
+      ];
+      break;
+    default:
+      // 默认模式：随机添加1-3个任务
+      const randomCount = Math.floor(Math.random() * 3) + 1;
+      const shuffled = [...punishmentTasks].sort(() => 0.5 - Math.random());
+      tasks = shuffled.slice(0, randomCount);
+  }
+  
+  return tasks;
+}
+
+// 检测游戏模式
+function detectGameMode() {
+  // 通过页面文本内容检测游戏模式
+  const pageText = document.body.textContent || '';
+  
+  if (pageText.includes('私密') || pageText.includes('私密模式')) {
+    return '私密';
+  } else if (pageText.includes('高级') || pageText.includes('高级模式')) {
+    return '高级';
+  } else if (pageText.includes('情侣') || pageText.includes('情侣模式')) {
+    return '情侣';
+  } else if (pageText.includes('恋爱') || pageText.includes('恋爱模式')) {
+    return '恋爱';
+  }
+  
+  return 'default';
+}
+
+// 监听页面上的点击事件，寻找各种惩罚选项
+function addPunishmentOption() {
+  // 等待Vue应用加载完成
+  setTimeout(() => {
+    // 查找包含各种惩罚相关文本的元素
+    const punishmentKeywords = [
+      '让对方做任何事',
+      '让对方',
+      '惩罚',
+      '任务',
+      '挑战',
+      '游戏结束',
+      '输了',
+      '失败'
+    ];
+    
+    const elements = document.querySelectorAll('*');
+    elements.forEach(element => {
+      if (element.textContent) {
+        const text = element.textContent.trim();
+        const hasKeyword = punishmentKeywords.some(keyword => text.includes(keyword));
+        
+        if (hasKeyword && (element.tagName === 'BUTTON' || element.tagName === 'DIV' || element.tagName === 'P')) {
+          // 找到相关元素，添加抽奖选项
+          const parent = element.parentElement;
+          if (parent && !parent.querySelector('.punishment-option')) {
+            // 获取当前模式的抽奖任务
+            const modeTasks = getPunishmentTasksByMode();
+            
+            // 随机选择1-3个任务
+            const taskCount = Math.min(Math.floor(Math.random() * 3) + 1, modeTasks.length);
+            const selectedTasks = modeTasks.sort(() => 0.5 - Math.random()).slice(0, taskCount);
+            
+            // 为每个选中的任务创建按钮
+            selectedTasks.forEach((task, index) => {
+              const punishmentBtn = document.createElement('button');
+              punishmentBtn.className = 'punishment-option';
+              punishmentBtn.style.cssText = `
+                background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+                color: white;
+                border: none;
+                border-radius: 15px;
+                padding: 10px 20px;
+                margin: 5px;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+                position: relative;
+                z-index: 1000;
+                display: block;
+                width: 100%;
+                max-width: 200px;
+              `;
+              punishmentBtn.textContent = `🎲 ${task.title}`;
+              punishmentBtn.onclick = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                // 随机选择赢家和输家
+                const players = ['玩家1', '玩家2', '玩家A', '玩家B', '红方', '蓝方'];
+                const randomWinner = players[Math.floor(Math.random() * players.length)];
+                const randomLoser = players.find(p => p !== randomWinner);
+                showPunishmentModalWithTask(randomWinner, randomLoser, task);
+              };
+              
+              // 将按钮添加到父元素中
+              parent.appendChild(punishmentBtn);
+            });
+          }
+        }
+      }
+    });
+  }, 2000);
+}
+
+// 页面加载完成后执行
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', addPunishmentOption);
+} else {
+  addPunishmentOption();
+}
+
+// 监听Vue应用的变化，定期检查是否有新的"让对方做任何事"选项
+setInterval(addPunishmentOption, 3000);
+
+// 点击弹窗外部关闭弹窗
+document.getElementById('punishmentModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closePunishmentModal();
+  }
+});
+</script>
+
+<script src=./static/js/chunk-vendors.e4450f0a.js></script><script src=./static/js/index.d2dcdf5b.js></script></body></html>
