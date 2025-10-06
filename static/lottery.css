@@ -54,8 +54,11 @@
 }
 
 .header-right {
-  width: 40px;
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex: 1;
 }
 
 .version-tag {
@@ -187,6 +190,40 @@
   background: linear-gradient(135deg, #ff1493, #8b008b);
   color: white;
   border-color: #ff69b4;
+}
+
+/* 任务类型下拉选择器 */
+.type-dropdown {
+  padding: 6px 12px;
+  border: 2px solid #ff6b9d;
+  border-radius: 15px;
+  background-color: white;
+  color: #ff6b9d;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-right: 10px;
+  outline: none;
+}
+
+.type-dropdown:hover {
+  background-color: #ff6b9d;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(255, 107, 157, 0.3);
+}
+
+.type-dropdown:focus {
+  background-color: #ff6b9d;
+  color: white;
+  box-shadow: 0 3px 12px rgba(255, 107, 157, 0.4);
+}
+
+.type-dropdown option {
+  background-color: white;
+  color: #ff6b9d;
+  padding: 8px;
 }
 
 /* 输入区域 */
@@ -363,11 +400,28 @@
   border: 2px solid #ff69b4;
 }
 
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
 .task-info .task-title {
   font-size: 18px;
   font-weight: 600;
   color: #c44569;
-  margin: 0 0 8px 0;
+  margin: 0;
+}
+
+.task-type {
+  background: linear-gradient(135deg, #ff1493, #8b008b);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .task-info .task-description {

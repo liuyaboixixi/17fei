@@ -6,6 +6,7 @@ export default function LotteryIsland() {
   const showTaskModal = useSignal(false);
   const currentTask = useSignal(null);
   const errorMessage = useSignal("");
+  const selectedType = useSignal<'女奴' | '男奴' | '恋爱'>('恋爱');
 
   const handleConfirm = () => {
     errorMessage.value = "";
@@ -15,7 +16,18 @@ export default function LotteryIsland() {
       return;
     }
 
-    const task = getTaskByLuckyNumber(luckyNumber.value);
+    // 根据选择的类型过滤任务
+    const filteredTasks = lotteryData.tasks.filter(task => task.type === selectedType.value);
+    if (filteredTasks.length === 0) {
+      errorMessage.value = "该类型暂无任务";
+      return;
+    }
+
+    // 简单的哈希算法，将幸运数字映射到过滤后的任务
+    const hash = luckyNumber.value.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    const taskIndex = hash % filteredTasks.length;
+    const task = filteredTasks[taskIndex];
+    
     if (task) {
       currentTask.value = task;
       showTaskModal.value = true;
@@ -53,7 +65,15 @@ export default function LotteryIsland() {
           <h1>抽奖</h1>
         </div>
         <div class="header-right">
-          <span class="version-tag">SP版</span>
+          <select 
+            class="type-dropdown"
+            value={selectedType.value}
+            onChange={(e) => selectedType.value = e.target.value as '女奴' | '男奴' | '恋爱'}
+          >
+            <option value="女奴">女奴</option>
+            <option value="男奴">男奴</option>
+            <option value="恋爱">恋爱</option>
+          </select>
         </div>
       </div>
 
@@ -63,10 +83,11 @@ export default function LotteryIsland() {
           <h2>💕 幸运数字抽取任务 💕</h2>
         </div>
         
-        <div class="task-description">
-          <p>✨ 请在下方输入一个四位数的幸运数字,点击确认即可抽取 ✨</p>
-          <p>🔥 任务列表,请依次完成哦 🔥</p>
-        </div>
+               <div class="task-description">
+                 <p>✨ 请在下方输入一个四位数的幸运数字,点击确认即可抽取 ✨</p>
+                 <p>🔥 任务列表,请依次完成哦 🔥</p>
+               </div>
+
 
 
         <div class="input-section">
@@ -115,12 +136,15 @@ export default function LotteryIsland() {
               <h3>🔥 任务列表 🔥</h3>
             </div>
             
-            <div class="modal-body">
-              {/* 任务信息 */}
-              <div class="task-info">
-                <h4 class="task-title">{currentTask.value.title}</h4>
-                <p class="task-description">{currentTask.value.description}</p>
-              </div>
+                   <div class="modal-body">
+                     {/* 任务信息 */}
+                     <div class="task-info">
+                       <div class="task-header">
+                         <h4 class="task-title">{currentTask.value.title}</h4>
+                         <span class="task-type">{currentTask.value.type}</span>
+                       </div>
+                       <p class="task-description">{currentTask.value.description}</p>
+                     </div>
 
               <div class="tools-section">
                 <span class="tools-label">🛠️ 工具:</span>
